@@ -62,8 +62,8 @@ const Hero = () => {
             top: mousePosition.y - 150,
           }}
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.3, 0.1],
+            scale: [1, 1.2],
+            opacity: [0.1, 0.3],
           }}
           transition={{
             duration: 3,
@@ -84,9 +84,9 @@ const Hero = () => {
               top: `${30 + i * 10}%`,
             }}
             animate={{
-              y: [-20, -40, -20],
-              opacity: [0.3, 0.8, 0.3],
-              scale: [1, 1.5, 1],
+              y: [-20, -40],
+              opacity: [0.3, 0.8],
+              scale: [1, 1.5],
             }}
             transition={{
               duration: 4 + i,
@@ -201,7 +201,7 @@ const Hero = () => {
                   delay: delay
                 }}
                 animate={{
-                  y: [0, -10, 0],
+                  y: [0, -10],
                 }}
                 style={{
                   animationDelay: `${delay}s`,
@@ -251,7 +251,7 @@ const Hero = () => {
             className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
             variants={itemVariants}
             animate={{
-              y: [0, 15, 0],
+              y: [0, 15],
             }}
             transition={{
               duration: 2.5,
