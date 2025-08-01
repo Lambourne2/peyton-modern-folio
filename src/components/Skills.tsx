@@ -62,8 +62,7 @@ const Skills = () => {
       color: "text-success",
       bgColor: "bg-success/10",
       skills: [
-        "AWS", "Google Cloud", "Kubernetes", "Terraform",
-        "CI/CD", "Monitoring", "Microservices", "PostgreSQL"
+        "PostgreSQL"
       ]
     },
     {
@@ -72,16 +71,14 @@ const Skills = () => {
       color: "text-warning",
       bgColor: "bg-warning/10",
       skills: [
-        "SQL", "Apache Spark", "Airflow", "Kafka",
-        "Data Pipelines", "ETL", "Data Warehousing", "BI Tools"
+        "SQL", "Data Pipelines"
       ]
     }
   ];
 
   const tools = [
     "Python", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy",
-    "Docker", "Kubernetes", "AWS", "GCP", "PostgreSQL", "MongoDB",
-    "Apache Spark", "Airflow", "Kafka", "Redis", "Git", "Linux"
+    "Docker", "PostgreSQL", "MongoDB", "Git"
   ];
 
   return (

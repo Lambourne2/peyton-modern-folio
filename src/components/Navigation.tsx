@@ -74,9 +74,9 @@ const Navigation = () => {
             </Button>
             <div className="flex items-center space-x-2">
               {[
-                { icon: Github, href: '#', color: 'hover:text-accent' },
-                { icon: Linkedin, href: '#', color: 'hover:text-accent-secondary' },
-                { icon: Mail, href: '#', color: 'hover:text-accent-tertiary' },
+                { icon: Github, href: 'https://github.com/Lambourne2', color: 'hover:text-accent' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/peyton-lambourne', color: 'hover:text-accent-secondary' },
+                { icon: Mail, href: 'mailto:lambourne.dev@gmail.com', color: 'hover:text-accent-tertiary' },
               ].map(({ icon: Icon, href, color }, index) => (
                 <Button 
                   key={index}
@@ -85,7 +85,7 @@ const Navigation = () => {
                   className={`p-3 glass-dark hover:shadow-glow transition-all duration-300 ${color}`}
                   asChild
                 >
-                  <a href={href}>
+                  <a href={href} target="_blank" rel="noopener noreferrer">
                     <Icon className="w-4 h-4" />
                   </a>
                 </Button>
@@ -138,19 +138,29 @@ const Navigation = () => {
                     variant="outline" 
                     size="sm" 
                     className="w-full neon-border text-foreground hover:bg-gradient-primary hover:text-white"
+                    asChild
                   >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Resume
+                    <a href="/resume.pdf" download>
+                      <Download className="w-4 h-4 mr-2" />
+                      Download Resume
+                    </a>
                   </Button>
                   <div className="flex justify-center space-x-4">
-                    {[Github, Linkedin, Mail].map((Icon, index) => (
+                    {[
+                      { icon: Github, href: 'https://github.com/Lambourne2' },
+                      { icon: Linkedin, href: 'https://www.linkedin.com/in/peyton-lambourne' },
+                      { icon: Mail, href: 'mailto:lambourne.dev@gmail.com' },
+                    ].map(({ icon: Icon, href }, index) => (
                       <Button 
                         key={index}
                         variant="ghost" 
                         size="sm" 
                         className="p-3 glass-dark hover:shadow-glow"
+                        asChild
                       >
-                        <Icon className="w-4 h-4" />
+                        <a href={href} target="_blank" rel="noopener noreferrer">
+                          <Icon className="w-4 h-4" />
+                        </a>
                       </Button>
                     ))}
                   </div>

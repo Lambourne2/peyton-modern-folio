@@ -29,56 +29,56 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "AI-Powered Medical Diagnosis",
-      description: "Deep learning model for automated medical image analysis with 95% accuracy. Deployed in production serving 10k+ diagnoses daily.",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      tags: ["PyTorch", "Computer Vision", "AWS", "Docker"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "CourseTutor",
+      description: "RAG-based Streamlit tutor",
+      image: "/course-tutor.jpeg",
+      tags: ["RAG", "Streamlit", "Python", "AI"],
+      demoUrl: "/course-tutor",
+      githubUrl: "https://github.com/anshimathur/group-4-project-3",
       featured: true
     },
     {
-      title: "Real-time Fraud Detection",
-      description: "ML pipeline processing millions of transactions per minute with sub-100ms latency using Apache Kafka and TensorFlow Serving.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      tags: ["TensorFlow", "Kafka", "GCP", "Real-time"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "BTRFLY Bot",
+      description: "Transform your Discord server into a competitive gaming hub with automated queue management, match tracking, and detailed leaderboards. Built for the modern gaming community.",
+      image: "/BTR2.png",
+      tags: ["Discord", "Bot", "Python", "Gaming"],
+      demoUrl: "https://btrflykoth.netlify.app",
+      githubUrl: "/btrfly-bot",
       featured: true
     },
     {
-      title: "NLP Sentiment Analysis API",
-      description: "RESTful API for multi-language sentiment analysis with 92% accuracy across 15 languages. Built with FastAPI and BERT.",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      tags: ["BERT", "FastAPI", "NLP", "Multi-language"],
-      demoUrl: "#",
+      title: "Accudent Dental Lab Website",
+      description: "Professional website for a dental laboratory showcasing services and case studies.",
+      image: "/accudentcover.png",
+      tags: ["Web Design", "React", "Business"],
+      demoUrl: "https://accudentdentallab.net",
       githubUrl: "#",
       featured: false
     },
     {
-      title: "Autonomous Drone Navigation",
-      description: "Computer vision system for autonomous drone navigation using reinforcement learning and object detection.",
-      image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      tags: ["RL", "OpenCV", "ROS", "Embedded"],
-      demoUrl: "#",
+      title: "High Point Coffee Website",
+      description: "Modern website for a local coffee shop featuring menu, location, and online ordering.",
+      image: "/highpointcover.png",
+      tags: ["Web Design", "React", "E-commerce"],
+      demoUrl: "https://highpointcoffee.netlify.app",
       githubUrl: "#",
       featured: false
     },
     {
-      title: "MLOps Infrastructure Platform",
-      description: "End-to-end MLOps platform with automated model training, validation, and deployment pipelines using Kubernetes.",
-      image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      tags: ["Kubernetes", "MLflow", "Airflow", "CI/CD"],
+      title: "Life Expectancy Classification",
+      description: "Predicting life expectancy classes using machine learning with a custom Delta model.",
+      image: "/lifeexpectancy.png",
+      tags: ["Machine Learning", "Classification", "Python", "Data Analysis"],
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/anshimathur/group-4-project-2",
       featured: false
     },
     {
-      title: "Smart IoT Analytics Dashboard",
-      description: "Real-time analytics dashboard for IoT sensor data with predictive maintenance using time series forecasting.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      tags: ["Time Series", "IoT", "React", "InfluxDB"],
-      demoUrl: "#",
+      title: "Tiktionary",
+      description: "RAG based insights and question answering using TikTok Saved Videos (WIP)",
+      image: "/tiktionary.png",
+      tags: ["RAG", "TikTok", "NLP", "Question Answering"],
+      demoUrl: "https://lambourne2.github.io/tiktionary.github.io/index.html",
       githubUrl: "#",
       featured: false
     }
@@ -146,11 +146,36 @@ const Portfolio = () => {
                         ))}
                       </div>
                       <div className="flex gap-4">
-                        <Button size="sm" className="hover-lift">
+                        <Button 
+                          size="sm" 
+                          className="hover-lift"
+                          onClick={() => {
+                            if (project.title === 'BTRFLY Bot') {
+                              window.open(project.demoUrl, '_blank');
+                            } else if (project.demoUrl && project.demoUrl !== '#') {
+                              if (project.demoUrl.startsWith('http')) {
+                                window.open(project.demoUrl, '_blank');
+                              } else {
+                                window.location.href = project.demoUrl;
+                              }
+                            }
+                          }}
+                        >
                           <Play className="w-4 h-4 mr-2" />
                           Live Demo
                         </Button>
-                        <Button variant="outline" size="sm" className="hover-lift">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="hover-lift"
+                          onClick={() => {
+                            if (project.title === 'BTRFLY Bot') {
+                              window.location.href = project.githubUrl;
+                            } else if (project.githubUrl && project.githubUrl !== '#') {
+                              window.open(project.githubUrl, '_blank');
+                            }
+                          }}
+                        >
                           <Github className="w-4 h-4 mr-2" />
                           Code
                         </Button>
@@ -192,10 +217,36 @@ const Portfolio = () => {
                         ))}
                       </div>
                       <div className="flex gap-2">
-                        <Button variant="ghost" size="sm" className="p-2 flex-1">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="p-2 flex-1"
+                          onClick={() => {
+                            if (project.title === 'BTRFLY Bot') {
+                              window.open(project.demoUrl, '_blank');
+                            } else if (project.demoUrl && project.demoUrl !== '#') {
+                              if (project.demoUrl.startsWith('http')) {
+                                window.open(project.demoUrl, '_blank');
+                              } else {
+                                window.location.href = project.demoUrl;
+                              }
+                            }
+                          }}
+                        >
                           <ExternalLink className="w-4 h-4" />
                         </Button>
-                        <Button variant="ghost" size="sm" className="p-2 flex-1">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="p-2 flex-1"
+                          onClick={() => {
+                            if (project.title === 'BTRFLY Bot') {
+                              window.location.href = project.githubUrl;
+                            } else if (project.githubUrl && project.githubUrl !== '#') {
+                              window.open(project.githubUrl, '_blank');
+                            }
+                          }}
+                        >
                           <Github className="w-4 h-4" />
                         </Button>
                       </div>

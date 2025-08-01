@@ -173,7 +173,7 @@ const Hero = () => {
           >
             Transforming complex data into{' '}
             <span className="text-gradient font-semibold">intelligent solutions</span>.
-            Specializing in deep learning, computer vision, and scalable AI systems.
+            Specializing in end-to-end machine learning systems and RAG pipelines.
           </motion.p>
 
           {/* Enhanced Skills Icons */}
@@ -226,9 +226,12 @@ const Hero = () => {
               <Button
                 size="lg"
                 className="bg-gradient-primary text-white px-12 py-4 text-xl font-bold hover:shadow-glow-secondary transition-all duration-500 border-0 shadow-glow"
+                asChild
               >
-                <Play className="w-6 h-6 mr-3" />
-                View My Work
+                <a href="#portfolio">
+                  <Play className="w-6 h-6 mr-3" />
+                  View My Work
+                </a>
               </Button>
             </motion.div>
             <motion.div
@@ -239,9 +242,12 @@ const Hero = () => {
                 variant="outline"
                 size="lg"
                 className="neon-border text-foreground hover:bg-gradient-primary hover:text-white px-12 py-4 text-xl font-bold transition-all duration-500 bg-transparent"
+                asChild
               >
-                <Download className="w-6 h-6 mr-3" />
-                Download Resume
+                <a href="/resume.pdf" download>
+                  <Download className="w-6 h-6 mr-3" />
+                  Download Resume
+                </a>
               </Button>
             </motion.div>
           </motion.div>

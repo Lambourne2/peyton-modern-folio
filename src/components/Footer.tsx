@@ -24,15 +24,15 @@ const Footer = () => {
             {/* Made with love */}
             <div className="text-center">
               <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
-                Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> and{' '}
-                <Coffee className="w-4 h-4 text-amber-600" /> in San Francisco
+                Built with <Heart className="w-4 h-4 text-red-500 fill-current" /> and{' '}
+                <Coffee className="w-4 h-4 text-amber-600" /> in Salt Lake City
               </p>
             </div>
 
             {/* Copyright */}
             <div className="text-center md:text-right">
               <p className="text-muted-foreground text-sm">
-                © 2024 Peyton Lambourne. All rights reserved.
+                © 2025 Peyton Lambourne. All rights reserved.
               </p>
             </div>
           </div>

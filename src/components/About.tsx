@@ -67,15 +67,15 @@ const About = () => {
             <motion.div variants={itemVariants}>
               <div className="space-y-8">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  I'm a Machine Learning Engineer with a passion for building intelligent systems
-                  that solve real-world problems. My expertise spans from deep learning research
-                  to production-scale ML infrastructure.
+                  I'm a machine learning engineer with end-to-end experience in Python, neural networks, and RAG pipelines. My passion lies in creating intelligent solutions that solve real-world problems through data-driven approaches.
                 </p>
                 
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Currently focused on computer vision, natural language processing, and
-                  MLOps practices. I enjoy collaborating with cross-functional teams to
-                  deliver AI-powered products that make a meaningful impact.
+                  I built CourseTutor, an AI study assistant using LangChain, FAISS, and Streamlit, to help students pull context-rich answers from their course materials. This project showcases my ability to combine various technologies to create practical applications that enhance learning experiences.
+                </p>
+                
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  With a strong foundation in machine learning algorithms, data preparation, and full-stack development, I'm constantly exploring new technologies and approaches to build more effective AI solutions.
                 </p>
 
                 {/* Enhanced Key Stats */}
@@ -84,15 +84,15 @@ const About = () => {
                     className="text-center glass-dark p-6 rounded-2xl hover-glow"
                     whileHover={{ scale: 1.05, y: -5 }}
                   >
-                    <div className="text-4xl font-black text-gradient mb-3">50+</div>
-                    <div className="text-sm text-muted-foreground font-medium">Projects Delivered</div>
+                    <div className="text-4xl font-black text-gradient mb-3">10+</div>
+                    <div className="text-sm text-muted-foreground font-medium">Years Design Experience</div>
                   </motion.div>
                   <motion.div 
                     className="text-center glass-dark p-6 rounded-2xl hover-glow"
                     whileHover={{ scale: 1.05, y: -5 }}
                   >
-                    <div className="text-4xl font-black text-gradient mb-3">5+</div>
-                    <div className="text-sm text-muted-foreground font-medium">Years Experience</div>
+                    <div className="text-4xl font-black text-gradient mb-3">2+</div>
+                    <div className="text-sm text-muted-foreground font-medium">Years ML Experience</div>
                   </motion.div>
                 </div>
               </div>
@@ -104,28 +104,28 @@ const About = () => {
                 {
                   icon: Briefcase,
                   title: "Current Role",
-                  description: "Senior ML Engineer at Tech Innovation Inc.",
+                  description: "Machine Learning Engineer & Graphic Designer",
                   color: "from-accent to-accent-secondary",
                   bgColor: "bg-accent/10"
                 },
                 {
                   icon: GraduationCap,
                   title: "Education",
-                  description: "M.S. Computer Science, Stanford University",
+                  description: "University of Utah - Machine Learning Bootcamp (Professional Certificate) Nov 2024 – May 2025",
                   color: "from-accent-secondary to-accent-tertiary",
                   bgColor: "bg-accent-secondary/10"
                 },
                 {
                   icon: Award,
-                  title: "Certifications",
-                  description: "AWS ML Specialty, Google Cloud Professional ML Engineer",
+                  title: "Additional Education",
+                  description: "Salt Lake Community College - General Education & Intro to CS (Associate's Coursework) Mar 2022 – Present",
                   color: "from-accent-tertiary to-accent",
                   bgColor: "bg-accent-tertiary/10"
                 },
                 {
                   icon: MapPin,
                   title: "Location",
-                  description: "San Francisco, CA (Open to Remote)",
+                  description: "Salt Lake City, UT",
                   color: "from-accent to-accent-tertiary",
                   bgColor: "bg-gradient-to-br from-accent/10 to-accent-tertiary/10"
                 }
@@ -136,8 +136,6 @@ const About = () => {
                       <div className="flex items-start space-x-6">
                         <motion.div 
                           className={`${item.bgColor} p-4 rounded-xl bg-gradient-to-br ${item.color} shadow-glow`}
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ type: "spring", stiffness: 300 }}
                         >
                           <item.icon className="w-6 h-6 text-white drop-shadow-lg" />
                         </motion.div>

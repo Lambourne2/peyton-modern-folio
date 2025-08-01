@@ -33,21 +33,21 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "peyton@example.com",
-      link: "mailto:peyton@example.com",
+      value: "lambourne.dev@gmail.com",
+      link: "mailto:lambourne.dev@gmail.com",
       color: "text-accent"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      value: "(801)-231-7176",
+      link: "tel:+18012317176",
       color: "text-primary-glow"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Salt Lake City, UT",
       link: "#",
       color: "text-success"
     }
@@ -57,19 +57,19 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      url: "https://github.com",
+      url: "https://github.com/Lambourne2",
       color: "hover:text-foreground"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/peyton-lambourne",
       color: "hover:text-blue-500"
     },
     {
       icon: Twitter,
       label: "Twitter",
-      url: "https://twitter.com",
+      url: "https://x.com/Lambournnne",
       color: "hover:text-blue-400"
     }
   ];
