@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, Briefcase, GraduationCap, MapPin } from 'lucide-react';
+import { Award, Briefcase, GraduationCap, MapPin, Sparkles } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -27,8 +27,14 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-32 relative">
+      {/* Background Effects */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-accent-secondary/20 to-accent-tertiary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-accent/20 to-accent-secondary/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           className="max-w-6xl mx-auto"
           variants={containerVariants}
@@ -36,28 +42,30 @@ const About = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {/* Section Header */}
-          <motion.div className="text-center mb-16" variants={itemVariants}>
-            <Badge variant="outline" className="mb-4 px-3 py-1">
+          {/* Enhanced Section Header */}
+          <motion.div className="text-center mb-20" variants={itemVariants}>
+            <Badge variant="outline" className="mb-6 px-4 py-2 neon-border text-foreground">
+              <Sparkles className="w-4 h-4 mr-2 text-accent" />
               About Me
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold font-inter mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-inter mb-8">
               Passionate about{' '}
-              <span className="bg-gradient-to-r from-accent to-primary-glow bg-clip-text text-transparent">
+              <span className="text-gradient text-shimmer">
                 AI Innovation
               </span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               With over 5 years of experience in machine learning and software engineering,
-              I specialize in transforming complex data challenges into scalable AI solutions
+              I specialize in transforming complex data challenges into{' '}
+              <span className="text-gradient font-semibold">scalable AI solutions</span>{' '}
               that drive business value.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Main Content */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Enhanced Main Content */}
             <motion.div variants={itemVariants}>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   I'm a Machine Learning Engineer with a passion for building intelligent systems
                   that solve real-world problems. My expertise spans from deep learning research
@@ -70,85 +78,82 @@ const About = () => {
                   deliver AI-powered products that make a meaningful impact.
                 </p>
 
-                {/* Key Stats */}
-                <div className="grid grid-cols-2 gap-6 pt-8">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-accent mb-2">50+</div>
-                    <div className="text-sm text-muted-foreground">Projects Delivered</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-accent mb-2">5+</div>
-                    <div className="text-sm text-muted-foreground">Years Experience</div>
-                  </div>
+                {/* Enhanced Key Stats */}
+                <div className="grid grid-cols-2 gap-8 pt-12">
+                  <motion.div 
+                    className="text-center glass-dark p-6 rounded-2xl hover-glow"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                  >
+                    <div className="text-4xl font-black text-gradient mb-3">50+</div>
+                    <div className="text-sm text-muted-foreground font-medium">Projects Delivered</div>
+                  </motion.div>
+                  <motion.div 
+                    className="text-center glass-dark p-6 rounded-2xl hover-glow"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                  >
+                    <div className="text-4xl font-black text-gradient mb-3">5+</div>
+                    <div className="text-sm text-muted-foreground font-medium">Years Experience</div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Info Cards */}
-            <motion.div className="space-y-4" variants={itemVariants}>
-              <Card className="glass hover-lift">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-accent/10 p-3 rounded-lg">
-                      <Briefcase className="w-6 h-6 text-accent" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-1">Current Role</h3>
-                      <p className="text-muted-foreground text-sm">
-                        Senior ML Engineer at Tech Innovation Inc.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="glass hover-lift">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-primary-glow/10 p-3 rounded-lg">
-                      <GraduationCap className="w-6 h-6 text-primary-glow" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-1">Education</h3>
-                      <p className="text-muted-foreground text-sm">
-                        M.S. Computer Science, Stanford University
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="glass hover-lift">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-success/10 p-3 rounded-lg">
-                      <Award className="w-6 h-6 text-success" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-1">Certifications</h3>
-                      <p className="text-muted-foreground text-sm">
-                        AWS ML Specialty, Google Cloud Professional ML Engineer
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="glass hover-lift">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-warning/10 p-3 rounded-lg">
-                      <MapPin className="w-6 h-6 text-warning" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-1">Location</h3>
-                      <p className="text-muted-foreground text-sm">
-                        San Francisco, CA (Open to Remote)
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Enhanced Info Cards */}
+            <motion.div className="space-y-6" variants={itemVariants}>
+              {[
+                {
+                  icon: Briefcase,
+                  title: "Current Role",
+                  description: "Senior ML Engineer at Tech Innovation Inc.",
+                  color: "from-accent to-accent-secondary",
+                  bgColor: "bg-accent/10"
+                },
+                {
+                  icon: GraduationCap,
+                  title: "Education",
+                  description: "M.S. Computer Science, Stanford University",
+                  color: "from-accent-secondary to-accent-tertiary",
+                  bgColor: "bg-accent-secondary/10"
+                },
+                {
+                  icon: Award,
+                  title: "Certifications",
+                  description: "AWS ML Specialty, Google Cloud Professional ML Engineer",
+                  color: "from-accent-tertiary to-accent",
+                  bgColor: "bg-accent-tertiary/10"
+                },
+                {
+                  icon: MapPin,
+                  title: "Location",
+                  description: "San Francisco, CA (Open to Remote)",
+                  color: "from-accent to-accent-tertiary",
+                  bgColor: "bg-gradient-to-br from-accent/10 to-accent-tertiary/10"
+                }
+              ].map((item, index) => (
+                <motion.div key={item.title} variants={itemVariants}>
+                  <Card className="glass-strong hover-lift group">
+                    <CardContent className="p-8">
+                      <div className="flex items-start space-x-6">
+                        <motion.div 
+                          className={`${item.bgColor} p-4 rounded-xl bg-gradient-to-br ${item.color} shadow-glow`}
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <item.icon className="w-6 h-6 text-white drop-shadow-lg" />
+                        </motion.div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-gradient transition-all duration-300">
+                            {item.title}
+                          </h3>
+                          <p className="text-muted-foreground leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </motion.div>

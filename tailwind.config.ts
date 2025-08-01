@@ -48,7 +48,8 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
-					glow: 'hsl(var(--accent-glow))'
+					secondary: 'hsl(var(--accent-secondary))',
+					tertiary: 'hsl(var(--accent-tertiary))'
 				},
 				success: {
 					DEFAULT: 'hsl(var(--success))',
@@ -76,6 +77,7 @@ export default {
 			},
 			boxShadow: {
 				'glow': 'var(--shadow-glow)',
+				'glow-secondary': 'var(--shadow-glow-secondary)',
 				'card': 'var(--shadow-card)',
 			},
 			backdropBlur: {
