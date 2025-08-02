@@ -43,7 +43,7 @@ const Skills = () => {
       bgColor: "bg-accent/10",
       skills: [
         "Deep Learning", "Computer Vision", "NLP", "MLOps", 
-        "Model Deployment", "Feature Engineering", "A/B Testing"
+        "Model Deployment", "Feature Engineering", "A/B Testing", "RAG"
       ]
     },
     {
@@ -62,7 +62,7 @@ const Skills = () => {
       color: "text-success",
       bgColor: "bg-success/10",
       skills: [
-        "PostgreSQL"
+        "PostgreSQL", "Railway"
       ]
     },
     {
