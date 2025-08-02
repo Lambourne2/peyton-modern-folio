@@ -252,23 +252,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Scroll Indicator */}
-          <motion.div
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-            variants={itemVariants}
-            animate={{
-              y: [0, 15],
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          >
-            <div className="glass-dark p-4 rounded-full">
-              <ChevronDown className="w-6 h-6 text-accent" />
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
