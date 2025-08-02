@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -5,8 +6,12 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { toast } from 'sonner';
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,6 +32,40 @@ const Contact = () => {
         ease: "easeOut" as const,
       },
     },
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (isSubmitted) return;
+    
+    setIsSubmitting(true);
+    
+    try {
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+      
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast.success("Message sent successfully!", {
+          description: "I'll get back to you soon.",
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast.error("Failed to send message", {
+        description: "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -150,65 +189,107 @@ const Contact = () => {
               <Card className="glass">
                 <CardContent className="p-8">
                   <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium mb-2">
-                          Name
-                        </label>
-                        <Input
-                          id="name"
-                          placeholder="Your name"
-                          className="glass-dark"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium mb-2">
-                          Email
-                        </label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="your@email.com"
-                          className="glass-dark"
-                        />
-                      </div>
+                  {isSubmitted ? (
+                    <div className="text-center py-8">
+                      <div className="text-2xl mb-4">🎉</div>
+                      <h4 className="text-lg font-semibold mb-2">Message Sent!</h4>
+                      <p className="text-muted-foreground">
+                        Thank you for reaching out. I'll get back to you soon!
+                      </p>
                     </div>
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                        Subject
-                      </label>
-                      <Input
-                        id="subject"
-                        placeholder="What's this about?"
-                        className="glass-dark"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        Message
-                      </label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell me about your project..."
-                        rows={6}
-                        className="glass-dark resize-none"
-                      />
-                    </div>
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                  ) : (
+                    <form 
+                      name="contact"
+                      method="POST"
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
+                      onSubmit={handleSubmit}
+                      className="space-y-6"
                     >
-                      <Button
-                        type="submit"
-                        size="lg"
-                        className="w-full bg-accent hover:bg-accent/90 text-white hover-lift shadow-glow"
+                      <input type="hidden" name="form-name" value="contact" />
+                      <div hidden>
+                        <label>
+                          Don't fill this out if you're human: 
+                          <input name="bot-field" />
+                        </label>
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium mb-2">
+                            Name
+                          </label>
+                          <Input
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            className="glass-dark"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium mb-2">
+                            Email
+                          </label>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="your@email.com"
+                            className="glass-dark"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                          Subject
+                        </label>
+                        <Input
+                          id="subject"
+                          name="subject"
+                          placeholder="What's this about?"
+                          className="glass-dark"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium mb-2">
+                          Message
+                        </label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          placeholder="Tell me about your project..."
+                          rows={6}
+                          className="glass-dark resize-none"
+                          required
+                        />
+                      </div>
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        <Send className="w-5 h-5 mr-2" />
-                        Send Message
-                      </Button>
-                    </motion.div>
-                  </form>
+                        <Button
+                          type="submit"
+                          size="lg"
+                          className="w-full bg-accent hover:bg-accent/90 text-white hover-lift shadow-glow"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                              Sending...
+                            </>
+                          ) : (
+                            <>
+                              <Send className="w-5 h-5 mr-2" />
+                              Send Message
+                            </>
+                          )}
+                        </Button>
+                      </motion.div>
+                    </form>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
