@@ -160,8 +160,8 @@ const Hero = () => {
             className="text-5xl md:text-7xl lg:text-8xl font-black font-inter mb-16 leading-relaxed"
             variants={itemVariants}
           >
-            <span className="block text-foreground mb-2">Machine Learning</span>
-            <span className="block text-gradient text-shimmer bg-gradient-primary animate-gradient">
+            <span className="block text-foreground mb-4">Machine Learning</span>
+            <span className="block text-gradient text-shimmer bg-gradient-primary animate-gradient pb-4">
               Engineer
             </span>
           </motion.h1>
