@@ -157,7 +157,7 @@ const Hero = () => {
 
           {/* Spectacular Main Heading */}
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-black font-inter mb-8 leading-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-black font-inter mb-16 leading-relaxed"
             variants={itemVariants}
           >
             <span className="block text-foreground mb-2">Machine Learning</span>
